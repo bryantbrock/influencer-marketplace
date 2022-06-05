@@ -5,17 +5,26 @@
   "scripts": {
     "tsc": "tsc",
     "test": "jest --watchAll",
-    "lint": "npx eslint . --ext .ts"
+    "lint": "npx eslint . --ext .ts",
+    "run:sandbox": "npx ts-node ./src/sandbox.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@prisma/client": "^3.14.0",
+    "aws-sdk": "^2.1148.0",
+    "dotenv": "^16.0.1",
+    "dynamodb-onetable": "^2.3.6",
+    "lodash": "^4.17.21"
+  },
   "devDependencies": {
     "@types/jest": "^27.5.1",
+    "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.2",
     "jest": "^28.1.0",
+    "prisma": "^3.14.0",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
   }

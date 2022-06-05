@@ -1,0 +1,32 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Listing {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  price     Int
+  created   DateTime  @default(now())
+  isSold    Boolean   @default(false)
+  isPending Boolean   @default(false)
+  vehicle   Vehicle?  @relation(fields: [vehicleId], references: [id])
+  vehicleId String?
+}
+
+model Vehicle {
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  make             String?
+  model            String?
+  miles            Int?
+  year             Int?
+  transmissionType String?
+  condition        String?
+  isPaidOff        Boolean?
+  titleStatus      String?
+  numOfOwners      Int?
+  Listing          Listing[]
+}
